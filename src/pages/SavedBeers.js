@@ -12,13 +12,13 @@ const ResultsPageStyles = styled.main`
 `;
 
 export default function SavedBeerPage() {
-  const { savedBeers } = useSelector((state) => state.savedBeers);
+  const savedBeers = useSelector((state) => state.beers.savedBeers);
 
   console.log(savedBeers);
   return (
     <ResultsPageStyles>
       {savedBeers.map((beer) => (
-        <SingleBeer key={beer.id} beer={savedBeers} />
+        <SingleBeer key={beer.id} beer={beer} />
       ))}
     </ResultsPageStyles>
   );

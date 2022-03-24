@@ -8,11 +8,10 @@ import { searchBeer } from "../actions/beers";
 const SearchStyles = styled.form`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 100%;
   .input-container {
-    width: 100%;
+    margin-top: 16px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1rem;
@@ -21,12 +20,12 @@ const SearchStyles = styled.form`
     display: flex;
     flex-direction: column;
     label {
-      margin-top: 16px;
+      margin-bottom: 16px;
     }
 
     input {
       height: 20px;
-      margin-top: 12px;
+      margin-bottom: 12px;
       padding: 8px;
     }
   }

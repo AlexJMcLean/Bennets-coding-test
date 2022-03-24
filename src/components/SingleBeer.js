@@ -30,14 +30,19 @@ const BeerStyles = styled.div`
     right: 10px;
     top: 10px;
     font-size: 20px;
+    cursor: pointer;
+    &:hover {
+      color: var(--purple);
+    }
   }
 `;
 
 export default function SingleBeer({ beer }) {
   const dispatch = useDispatch();
 
-  const handleSave = () => {
+  const handleSave = (e) => {
     dispatch(saveBeer(beer));
+    e.target.style.color = "var(--purple)";
   };
 
   return (

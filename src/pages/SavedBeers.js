@@ -5,7 +5,7 @@ import styled from "styled-components";
 import SingleBeer from "../components/SingleBeer";
 
 const ResultsPageStyles = styled.main`
-  margin-top: 40px;
+  padding-top: 40px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1rem;

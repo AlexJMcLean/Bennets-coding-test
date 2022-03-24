@@ -9,24 +9,34 @@ const SearchStyles = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 100%;
+  height: calc(100vh - 45px);
+
   .input-container {
     margin-top: 16px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1rem;
+    background-color: #e9e9e9;
+    padding: 50px;
+    border: solid 1px var(--purple);
+    border-radius: 10px;
   }
   .inputs {
     display: flex;
     flex-direction: column;
     label {
-      margin-bottom: 16px;
+      margin-bottom: 8px;
     }
 
     input {
       height: 20px;
       margin-bottom: 12px;
       padding: 8px;
+      background-color: transparent;
+      color: var(--darkGrey);
+      font-size: 1.1rem;
     }
   }
 `;
@@ -56,42 +66,42 @@ export default function Search() {
     <SearchStyles>
       <div className="input-container">
         <div className="inputs">
-          <label htmlFor="name">Name of Beer</label>
+          <label htmlFor="name">Search by Name</label>
           <input
             type="text"
             id="name"
             name="name"
             value={formState.name}
             onChange={handleStateChange}
-            placeholder="Name"
+            placeholder="..."
           />
         </div>
         <div className="inputs">
-          <label htmlFor="abv">ABV</label>
+          <label htmlFor="abv">Search by ABV</label>
           <input
             type="text"
             id="abv"
             name="abv"
             value={formState.abv}
             onChange={handleStateChange}
-            placeholder="Abv"
+            placeholder="..."
           />
         </div>
         <div className="inputs">
-          <label htmlFor="food">Food Pairing</label>
+          <label htmlFor="food">Search by Food Pairing</label>
           <input
             type="text"
             id="food"
             name="food"
             value={formState.food}
             onChange={handleStateChange}
-            placeholder="Food Pairing."
+            placeholder="..."
           />
         </div>
+        <button className="btn" type="submit" onClick={handleSubmit}>
+          Go!
+        </button>
       </div>
-      <button className="btn" type="submit" onClick={handleSubmit}>
-        Go!
-      </button>
     </SearchStyles>
   );
 }

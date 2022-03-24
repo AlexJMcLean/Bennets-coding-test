@@ -7,7 +7,7 @@ import SingleBeer from "../components/SingleBeer";
 import CircularLoader from "../components/CircularLoader";
 
 const ResultsPageStyles = styled.main`
-  margin-top: 40px;
+  padding-top: 40px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1rem;
@@ -24,7 +24,7 @@ export default function AllBeersPage() {
 
   useEffect(() => {
     dispatch(getBeers(page));
-  }, [page]);
+  }, [dispatch, page]);
 
   const getNextPage = () => {
     setPage(page + 1);

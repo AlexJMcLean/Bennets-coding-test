@@ -3,6 +3,8 @@ import { createGlobalStyle } from "styled-components";
 <style>
   @import
   url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;500;600&display=swap');
+  @import
+  url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;500;600&family=Playfair+Display&display=swap');
 </style>;
 
 const GlobalStyles = createGlobalStyle`
@@ -12,11 +14,16 @@ const GlobalStyles = createGlobalStyle`
     --black: #101828;
     --white: #fff;
     --font: "Inter","San Francisco","SF Pro Text",-apple-system,system-ui,sans-serif;
+    --heading-font: 'Playfair Display', serif;
     --title-font-size: clamp(20px,5vw,50px);
     --h2-font-size: clamp(16px, 3vw, 25px);
     --text-font-size: clamp(12px, 1vw, 16px);
   }
-  
+  label {
+    font-family: var(--heading-font);
+    color: var(--darkGrey);
+    font-size: 1.3rem;
+  }
   body {
     font-family: var(--font);
     color: var(--darkGrey);
@@ -31,6 +38,7 @@ const GlobalStyles = createGlobalStyle`
       font-size: var(--h2-font-size);
     }
   h2 {
+    font-family: var(--heading-font);
     font-size: var(--h2-font-size);
   }
   .accent {

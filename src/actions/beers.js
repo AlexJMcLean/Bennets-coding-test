@@ -2,6 +2,7 @@ import * as api from "../api";
 
 export const searchBeer = (formData, navigate) => async (dispatch) => {
   try {
+    dispatch({ type: "START_LOADING" });
     const formattedName = formData.name.split(" ").join("_");
     const formattedABV = formData.abv !== "" ? parseInt(formData.abv) : "";
     const formattedFood = formData.food.split(" ").join("_");
@@ -39,6 +40,7 @@ export const searchBeer = (formData, navigate) => async (dispatch) => {
     const { data } = await api.searchBeer(query);
 
     dispatch({ type: "FETCH_BEERS", payload: { data } });
+    dispatch({ type: "END_LOADING" });
     navigate("/results");
   } catch (error) {
     console.log(error);
@@ -55,7 +57,9 @@ export const saveBeer = (beer) => async (dispatch) => {
 
 export const getBeers = (page) => async (dispatch) => {
   try {
+    dispatch({ type: "START_LOADING" });
     const { data } = await api.fetchBeers(page);
-    dispatch({ type: "FETCH_BEER", payload: { data } });
+    dispatch({ type: "FETCH_BEERS", payload: { data } });
+    dispatch({ type: "END_LOADING" });
   } catch (error) {}
 };

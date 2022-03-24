@@ -35,8 +35,8 @@ export default function Header() {
   return (
     <HeaderStyles>
       <Link to="/">Search</Link>
-      {/* <Link to="/all">View All</Link>
-      <Link to="/saved">Saved Beers</Link> */}
+      <Link to="/all">View All</Link>
+      <Link to="/saved">Saved Beers</Link>
     </HeaderStyles>
   );
 }

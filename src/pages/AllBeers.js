@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 
@@ -14,23 +14,40 @@ const ResultsPageStyles = styled.main`
 `;
 
 export default function AllBeersPage() {
+  const isLoading = useSelector((state) => state.isLoading);
+  const [page, setPage] = useState(1);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getBeers());
   }, [dispatch]);
-  const { beers } = useSelector((state) => state.beers);
 
-  console.log(beers);
+  useEffect(() => {
+    dispatch(getBeers(page));
+  }, [page]);
+
+  const getNextPage = () => {
+    setPage(page + 1);
+    console.log("getting next page");
+    window.scrollTo(0, 0);
+  };
+  const beers = useSelector((state) => state.beers?.beers);
+
   return (
     <>
-      {!beers?.length ? (
+      {isLoading ? (
         <CircularLoader />
       ) : (
-        <ResultsPageStyles>
-          {beers.map((beer) => (
-            <SingleBeer key={beer.id} beer={beer} />
-          ))}
-        </ResultsPageStyles>
+        <>
+          <ResultsPageStyles>
+            {beers.map((beer) => (
+              <SingleBeer key={beer.id} beer={beer} />
+            ))}
+          </ResultsPageStyles>
+          <button className="btn" onClick={getNextPage}>
+            Next Page
+          </button>
+        </>
       )}
     </>
   );

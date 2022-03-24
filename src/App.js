@@ -5,7 +5,6 @@ import Search from "./pages/Search";
 import ResultsPage from "./pages/Results";
 import SavedBeerPage from "./pages/SavedBeers";
 import AllBeersPage from "./pages/AllBeers";
-import "./App.css";
 
 function App() {
   return (
